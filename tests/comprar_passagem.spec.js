@@ -87,7 +87,8 @@ test('Realizar fluxo de compra da passagem', async ({page}) => {
     await expect(page.locator(seletor_elemento('tbody', 5, 5))).toHaveText('1:45 AM')
     await expect(page.locator(seletor_elemento('tbody', 5, 6))).toHaveText('8:34 PM')
     await expect(page.locator(seletor_elemento('tbody', 5, 7))).toHaveText('$233.98')
-    
+    await page.waitForTimeout(1000)
+
     // Ir para a tela de reserva
    	// selecionando um dos voos - exemplo do voo 2
     await page.locator(seletor_elemento('input', 2, 2)).click()
@@ -123,7 +124,7 @@ test('Realizar fluxo de compra da passagem', async ({page}) => {
     await page.fill(creditCardYear, '2027')
     await page.fill(nameOnCard, 'Maria J Silva')
     await page.setChecked('#rememberMe')
-
+    await page.waitForTimeout(1000)
     
     // Ir para a tela de confirmação    
     await page.locator('.btn.btn-primary').click()
@@ -144,7 +145,6 @@ test('Realizar fluxo de compra da passagem', async ({page}) => {
     await expect(page.locator('body > div.container > div > table > tbody > tr:nth-child(5) > td:nth-child(2)')).toHaveText('11 /2018')
     await expect(page.locator('body > div.container > div > table > tbody > tr:nth-child(6) > td:nth-child(2)')).toHaveText('888888')
     
-
-    await page.waitForTimeout(2000)
+    await page.waitForTimeout(1000)
 
 })
