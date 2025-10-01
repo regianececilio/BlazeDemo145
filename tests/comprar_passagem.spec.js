@@ -145,6 +145,6 @@ test('Realizar fluxo de compra da passagem', async ({page}) => {
     await expect(page.locator('body > div.container > div > table > tbody > tr:nth-child(6) > td:nth-child(2)')).toHaveText('888888')
     
 
-    //await page.waitForTimeout(3000)
+    await page.waitForTimeout(2000)
 
 })
